@@ -1,8 +1,7 @@
 package me.alphamode.scp.core;
 
-import net.minecraftforge.common.IExtensibleEnum;
 
-public enum ObjectClass implements IExtensibleEnum {
+public enum ObjectClass {
     SAFE,
     EUCLID,
     KETER;

@@ -2,8 +2,6 @@ package me.alphamode.scp.entity;
 
 import me.alphamode.scp.core.ObjectClass;
 import me.alphamode.scp.core.SCP;
-import net.minecraftforge.network.NetworkHooks;
-import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
@@ -19,7 +17,7 @@ public class SCP173 extends Entity implements SCP {
 
     @Override
     public ObjectClass getObjectClass() {
-        return null;
+        return ObjectClass.EUCLID;
     }
 
     @Override
@@ -38,7 +36,7 @@ public class SCP173 extends Entity implements SCP {
     }
 
     @Override
-    public @NotNull Packet<?> getAddEntityPacket() {
-        return NetworkHooks.getEntitySpawningPacket(this);
+    public Packet<?> getAddEntityPacket() {
+        return new ClientboundAddEntityPacket(this);
     }
 }

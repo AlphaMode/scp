@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "scp",
+  "version": "${version}",
+  "name": "SCP",
+  "description": "",
+  "authors": [
+    "AlphaMode"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.alphamode.scp.SCPMod"
+    ]
+  },
+  "mixins": [
+    "scp.mixins.json"
+  ],
+  "breaks": {
+    "boats-and-beeps": "*"
+  },
+  "depends": {
+    "fabricloader": ">=0.12.0",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=16",
+    "cloth-config2": ">=5.0.37",
+    "cloth-api": ">=2.0.54"
+  },
+  "suggests": {
+    "modmenu": ">=2.0.2"
+  }
+}

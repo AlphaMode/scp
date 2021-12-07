@@ -1,13 +1,18 @@
 package me.alphamode.scp;
 
-import net.minecraftforge.fml.common.Mod;
+import net.fabricmc.api.ModInitializer;
 
-// The value here should match an entry in the META-INF/mods.toml file
-@Mod("scp")
-public class SCPMod {
+import net.minecraft.resources.ResourceLocation;
+
+public class SCPMod implements ModInitializer {
     public static final String ID = "scp";
 
-    public SCPMod() {
+    @Override
+    public void onInitialize() {
+        AllEntities.init();
+    }
 
+    public static ResourceLocation asResource(String id) {
+        return new ResourceLocation(ID, id);
     }
 }
