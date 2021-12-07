@@ -5,36 +5,47 @@ import me.alphamode.scp.core.SCP;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.HumanoidArm;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-public class SCP173 extends Entity implements SCP {
-    public SCP173(EntityType<?> p_19870_, Level p_19871_) {
-        super(p_19870_, p_19871_);
+public class SCP173 extends LivingEntity implements SCP {
+    public SCP173(EntityType<SCP173> type, Level world) {
+        super(type, world);
     }
 
     @Override
     public ObjectClass getObjectClass() {
+        return ObjectClass.EUCLID;
+    }
+
+    @Override
+    public Iterable<ItemStack> getArmorSlots() {
         return null;
     }
 
     @Override
-    protected void defineSynchedData() {
+    public ItemStack getItemBySlot(EquipmentSlot p_21127_) {
+        return ItemStack.EMPTY;
+    }
+
+    @Override
+    public void setItemSlot(EquipmentSlot p_21036_, ItemStack p_21037_) {
 
     }
 
     @Override
-    protected void readAdditionalSaveData(CompoundTag tag) {
-
+    public HumanoidArm getMainArm() {
+        return HumanoidArm.RIGHT;
     }
 
-    @Override
-    protected void addAdditionalSaveData(CompoundTag tag) {
-
+    public static AttributeSupplier.Builder attributes() {
+        return LivingEntity.createLivingAttributes();
     }
 
     @Override

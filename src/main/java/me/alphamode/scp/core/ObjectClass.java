@@ -7,6 +7,10 @@ public enum ObjectClass implements IExtensibleEnum {
     EUCLID,
     KETER;
 
+    public String getTranslationKey() {
+        return "scp.object_class." + name().toLowerCase();
+    }
+
     public static ObjectClass create(String name) {
         throw new IllegalStateException("Enum not extended");
     }
